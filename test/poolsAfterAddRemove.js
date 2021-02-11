@@ -37,7 +37,7 @@ contract('configurableAddRemoveTokens - join/exit after add', async (accounts) =
     const startBalances = [toWei('80000'), toWei('40'), toWei('10000')];
     const addTokenTimeLockInBlocks = 10;
     const SYMBOL = 'BSP';
-    const NAME = 'Balancer Pool Token';
+    const NAME = 'Cent Pool Token';
 
     const permissions = {
         canPauseSwapping: false,
@@ -148,25 +148,25 @@ contract('configurableAddRemoveTokens - join/exit after add', async (accounts) =
             const bPoolAddr = await crpPool.bPool();
             const bPool = await BPool.at(bPoolAddr);
     
-            let adminBPTBalance = await crpPool.balanceOf.call(admin);
+            let adminCPTBalance = await crpPool.balanceOf.call(admin);
             let adminAbcBalance = await abc.balanceOf.call(admin);
             let bPoolAbcBalance = await abc.balanceOf.call(bPoolAddr);
     
-            assert.equal(adminBPTBalance, toWei('100'));
+            assert.equal(adminCPTBalance, toWei('100'));
             assert.equal(adminAbcBalance, toWei('100000'));
             assert.equal(bPoolAbcBalance, toWei('0'));
     
             await crpPool.applyAddToken();
     
-            adminBPTBalance = await crpPool.balanceOf.call(admin);
+            adminCPTBalance = await crpPool.balanceOf.call(admin);
             adminAbcBalance = await abc.balanceOf.call(admin);
             bPoolAbcBalance = await abc.balanceOf.call(bPoolAddr);
             const bPoolXYZBalance = await xyz.balanceOf.call(bPoolAddr);
             const bPoolWethBalance = await weth.balanceOf.call(bPoolAddr);
             const bPoolDaiBalance = await dai.balanceOf.call(bPoolAddr);
     
-            // BPT Balance should go from 100 to 110 since total weight went from 15 to 16.5
-            assert.equal(adminBPTBalance, toWei('110'));
+            // CPT Balance should go from 100 to 110 since total weight went from 15 to 16.5
+            assert.equal(adminCPTBalance, toWei('110'));
             assert.equal(adminAbcBalance, toWei('90000'));
             assert.equal(bPoolAbcBalance, toWei('10000'));
             assert.equal(bPoolXYZBalance, toWei('80000'));

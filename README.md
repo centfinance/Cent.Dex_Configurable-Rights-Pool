@@ -47,8 +47,8 @@ const permissions = {
 };
 
 const poolParams = {
-    poolTokenSymbol: 'BPT',
-    poolTokenName: 'BTP Example Name',
+    poolTokenSymbol: 'CPT',
+    poolTokenName: 'CTP Example Name',
     constituentTokens: [XYZ, WETH, DAI], // contract addresses
     tokenBalances: [toWei('80000'), toWei('40'), toWei('10000')],
     tokenWeights: [toWei('12'), toWei('1.5'), toWei('1.5')],

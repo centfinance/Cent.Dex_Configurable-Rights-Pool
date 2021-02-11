@@ -9,7 +9,7 @@ const { calcInGivenOut, calcRelativeDiff } = require('../lib/calc_comparisons');
 
 /*
 Tests initial CRP Pool set-up including:
-BPool deployment, token binding, balance checks, BPT checks.
+BPool deployment, token binding, balance checks, CPT checks.
 */
 contract('crpPoolSwapOuts', async (accounts) => {
     const admin = accounts[0];
@@ -24,7 +24,7 @@ contract('crpPoolSwapOuts', async (accounts) => {
     const startWeights = [toWei('12'), toWei('1.5'), toWei('1.5')];
     const startBalances = [toWei('80000'), toWei('40'), toWei('10000')];
     const SYMBOL = 'BSP';
-    const NAME = 'Balancer Pool Token';
+    const NAME = 'Cent Pool Token';
 
     const permissions = {
         canPauseSwapping: true,
@@ -63,7 +63,7 @@ contract('crpPoolSwapOuts', async (accounts) => {
     let xyzWeight;
     let daiWeight;
     let wethWeight;
-    let adminBPTBalance;
+    let adminCPTBalance;
 
     before(async () => {
         bFactory = await BFactory.deployed();
@@ -232,15 +232,15 @@ contract('crpPoolSwapOuts', async (accounts) => {
         assert.equal(daiWeight, toWei('1.5'));
     });
 
-    it('Admin should have initial BPT', async () => {
-        adminBPTBalance = await crpPool.balanceOf.call(admin);
-        assert.equal(adminBPTBalance, toWei('100'));
+    it('Admin should have initial CPT', async () => {
+        adminCPTBalance = await crpPool.balanceOf.call(admin);
+        assert.equal(adminCPTBalance, toWei('100'));
 
-        adminBPTBalance = await crpPool2.balanceOf.call(admin);
-        assert.equal(adminBPTBalance, toWei('100'));
+        adminCPTBalance = await crpPool2.balanceOf.call(admin);
+        assert.equal(adminCPTBalance, toWei('100'));
 
-        adminBPTBalance = await crpPool3.balanceOf.call(admin);
-        assert.equal(adminBPTBalance, toWei('100'));
+        adminCPTBalance = await crpPool3.balanceOf.call(admin);
+        assert.equal(adminCPTBalance, toWei('100'));
     });
 
     it('Should perform swaps', async () => {

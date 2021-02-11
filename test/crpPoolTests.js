@@ -14,7 +14,7 @@ const verbose = process.env.VERBOSE;
 
 /*
 Tests initial CRP Pool set-up including:
-BPool deployment, token binding, balance checks, BPT checks.
+BPool deployment, token binding, balance checks, CPT checks.
 */
 contract('crpPoolTests', async (accounts) => {
     const admin = accounts[0];
@@ -143,26 +143,26 @@ contract('crpPoolTests', async (accounts) => {
         }
     });
 
-    it('Admin should have no initial BPT', async () => {
-        const adminBPTBalance = await crpPool.balanceOf.call(admin);
-        assert.equal(adminBPTBalance, toWei('0'));
+    it('Admin should have no initial CPT', async () => {
+        const adminCPTBalance = await crpPool.balanceOf.call(admin);
+        assert.equal(adminCPTBalance, toWei('0'));
     });
 
-    it('crpPool should not createPool with 0 BPT Initial Supply', async () => {
+    it('crpPool should not createPool with 0 CPT Initial Supply', async () => {
         await truffleAssert.reverts(
             crpPool.createPool(toWei('0')),
             'ERR_INIT_SUPPLY_MIN',
         );
     });
 
-    it('crpPool should not createPool with BPT Initial Supply < MIN', async () => {
+    it('crpPool should not createPool with CPT Initial Supply < MIN', async () => {
         await truffleAssert.reverts(
             crpPool.createPool(toWei('10')),
             'ERR_INIT_SUPPLY_MIN',
         );
     });
 
-    it('crpPool should not createPool with BPT Initial Supply > MAX', async () => {
+    it('crpPool should not createPool with CPT Initial Supply > MAX', async () => {
         await truffleAssert.reverts(
             crpPool.createPool(toWei('1000000001')),
             'ERR_INIT_SUPPLY_MAX',
@@ -242,9 +242,9 @@ contract('crpPoolTests', async (accounts) => {
         assert.equal(daiWeight, toWei('1.5'));
     });
 
-    it('Admin should have initial BPT', async () => {
-        const adminBPTBalance = await crpPool.balanceOf.call(admin);
-        assert.equal(adminBPTBalance, toWei('100'));
+    it('Admin should have initial CPT', async () => {
+        const adminCPTBalance = await crpPool.balanceOf.call(admin);
+        assert.equal(adminCPTBalance, toWei('100'));
     });
 
     it('Should not allow joining with partial token list', async () => {
@@ -328,7 +328,7 @@ contract('crpPoolTests', async (accounts) => {
     it('JoinPool should revert if user does not have allowance to join pool', async () => {
         await truffleAssert.reverts(
             crpPool.joinPool(toWei('1'), [MAX, MAX, MAX], { from: user1 }),
-            'ERR_BTOKEN_BAD_CALLER',
+            'ERR_CTOKEN_BAD_CALLER',
         );
     });
 

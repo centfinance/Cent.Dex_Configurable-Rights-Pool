@@ -21,7 +21,7 @@ contract('configurableWeights_withSwaps', async (accounts) => {
     const swapFee = 10 ** 15;
 
     const SYMBOL = 'BSP';
-    const NAME = 'Balancer Pool Token';
+    const NAME = 'Cent Pool Token';
 
     const permissions = {
         canPauseSwapping: false,

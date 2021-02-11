@@ -29,7 +29,7 @@ contract('CRPFactory', async (accounts) => {
     const startBalances = [toWei('80000'), toWei('40'), toWei('10000')];
     const SYMBOL = 'BSP';
     const LONG_SYMBOL = '012345678901234567890123456789012'
-    const NAME = 'Balancer Pool Token';
+    const NAME = 'Cent Pool Token';
 
     const permissions = {
         canPauseSwapping: false,
