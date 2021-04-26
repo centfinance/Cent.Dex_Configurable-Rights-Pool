@@ -1,6 +1,6 @@
 {
     "private": true,
-    "name": "lbp",
+    "name": "symmetric_configurable-rights-pool",
     "version": "0.0.1",
     "license": "GPL-3.0-only",
     "description": "Smart pool template for Liquidity Bootstrapping Pools",
@@ -16,12 +16,12 @@
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/centfinance/Cent.Dex_Configurable-Rights-Pool.git"
+        "url": "git+https://github.com/centfinance/Symmetric.Configurable-Rights-Pool.git"
     },
     "bugs": {
-        "url": "https://github.com/centfinance/Cent.Dex_Configurable-Rights-Pool/issues"
+        "url": "https://github.com/centfinance/Symmetric.Configurable-Rights-Pool/issues"
     },
-    "homepage": "https://github.com/centfinance/Cent.Dex_Configurable-Rights-Pool#readme",
+    "homepage": "https://github.com/centfinance/Symmetric.Configurable-Rights-Pool#readme",
     "devDependencies": {
         "@openzeppelin/test-helpers": "^0.5.5",
         "chai": "^4.2.0",
@@ -42,6 +42,7 @@
         "web3": "^1.2.0"
     },
     "dependencies": {
+        "@celo/contractkit": "^1.2.0",
         "@truffle/hdwallet-provider": "^1.2.1",
         "decimal.js": "^10.2.0",
         "dotenv": "^8.2.0",
