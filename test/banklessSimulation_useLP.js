@@ -40,7 +40,7 @@ contract('Bankless Simulation (using LP)', async (accounts) => {
     // 38 weight and 38 tokens is a coincidence
     const startBalances = [toWei(initialDaiDeposit), toWei('38')];
     const SYMBOL = 'BAP';
-    const NAME = 'Bankless Apparel 0 BPT';
+    const NAME = 'Bankless Apparel 0 CPT';
 
     const permissions = {
         canPauseSwapping: true,

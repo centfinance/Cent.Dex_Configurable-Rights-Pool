@@ -10,7 +10,7 @@ const truffleAssert = require('truffle-assertions');
 
 /*
 Tests initial CRP Pool set-up including:
-BPool deployment, token binding, balance checks, BPT checks.
+BPool deployment, token binding, balance checks, CPT checks.
 */
 contract('crpPoolOverloadTests', async (accounts) => {
     const admin = accounts[0];
@@ -22,7 +22,7 @@ contract('crpPoolOverloadTests', async (accounts) => {
     const startWeights = [toWei('12'), toWei('1.5'), toWei('1.5')];
     const startBalances = [toWei('80000'), toWei('40'), toWei('10000')];
     const SYMBOL = 'BSP';
-    const NAME = 'Balancer Pool Token';
+    const NAME = 'Cent Pool Token';
 
     const permissions = {
         canPauseSwapping: true,

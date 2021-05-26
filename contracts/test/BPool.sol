@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 pragma solidity ^0.6.6;
 
-import "./BToken.sol";
+import "./CToken.sol";
 import "./BMath.sol";
 
 // Core contract; can't be changed. So disable solhint (reminder for v2)
@@ -9,7 +9,7 @@ import "./BMath.sol";
 /* solhint-disable func-order */
 /* solhint-disable event-name-camelcase */
 
-contract BPool is BBronze, BToken, BMath {
+contract BPool is BBronze, CToken, BMath {
 
     struct Record {
         bool bound;   // is token bound to pool

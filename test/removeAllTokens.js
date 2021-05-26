@@ -37,7 +37,7 @@ contract('Remove all tokens', async (accounts) => {
     const startBalances = [toWei('80000'), toWei('40'), toWei('10000')];
     const addTokenTimeLockInBlocks = 10;
     const SYMBOL = 'BSP';
-    const NAME = 'Balancer Pool Token';
+    const NAME = 'Cent Pool Token';
 
     const permissions = {
         canPauseSwapping: false,

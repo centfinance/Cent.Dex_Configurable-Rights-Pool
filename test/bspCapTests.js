@@ -35,7 +35,7 @@ contract('BSP Cap', async (accounts) => {
     const startWeights = [toWei('20'), toWei('20')];
     const startBalances = [toWei('20000'), toWei('50')];
     const SYMBOL = 'BSP';
-    const NAME = 'Balancer Pool Token';
+    const NAME = 'Cent Pool Token';
 
      const permissions = {
         canPauseSwapping: false,

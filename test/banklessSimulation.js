@@ -39,7 +39,7 @@ contract('Bankless Simulation', async (accounts) => {
     // 38 weight and 38 tokens is a coincidence
     const startBalances = [toWei(initialDaiDeposit), toWei('38')];
     const SYMBOL = 'BAP';
-    const NAME = 'Balancer Pool Token';
+    const NAME = 'Cent Pool Token';
 
     const permissions = {
         canPauseSwapping: true,

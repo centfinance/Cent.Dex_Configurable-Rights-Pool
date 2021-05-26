@@ -27,7 +27,7 @@ interface IERC20 {
 
 /* solhint-disable func-order */
 
-contract BTokenBase is BNum {
+contract CTokenBase is BNum {
 
     mapping(address => uint)                   internal _balance;
     mapping(address => mapping(address=>uint)) internal _allowance;
@@ -65,10 +65,10 @@ contract BTokenBase is BNum {
     }
 }
 
-contract BToken is BTokenBase, IERC20 {
+contract CToken is CTokenBase, IERC20 {
 
-    string  private _name     = "Balancer Pool Token";
-    string  private _symbol   = "BPT";
+    string  private _name     = "Cent Pool Token";
+    string  private _symbol   = "CPT";
     uint8   private _decimals = 18;
 
     function name() public view returns (string memory) {
@@ -124,7 +124,7 @@ contract BToken is BTokenBase, IERC20 {
     }
 
     function transferFrom(address src, address dst, uint amt) external override returns (bool) {
-        require(msg.sender == src || amt <= _allowance[src][msg.sender], "ERR_BTOKEN_BAD_CALLER");
+        require(msg.sender == src || amt <= _allowance[src][msg.sender], "ERR_CTOKEN_BAD_CALLER");
         _move(src, dst, amt);
         if (msg.sender != src && _allowance[src][msg.sender] != uint256(-1)) {
             _allowance[src][msg.sender] = bsub(_allowance[src][msg.sender], amt);

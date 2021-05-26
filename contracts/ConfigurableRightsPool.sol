@@ -23,7 +23,7 @@ import "../libraries/SafeApprove.sol";
 /**
  * @author Balancer Labs
  * @title Smart Pool with customizable features
- * @notice PCToken is the "Balancer Smart Pool" token (transferred upon finalization)
+ * @notice PCToken is the "Cent Smart Pool" token (transferred upon finalization)
  * @dev Rights are defined as follows (index values into the array)
  *      0: canPauseSwapping - can setPublicSwap back to false after turning it on
  *                            by default, it is off on initialization and can only be turned on
@@ -45,7 +45,7 @@ contract ConfigurableRightsPool is PCToken, BalancerOwnable, BalancerReentrancyG
     // Type declarations
 
     struct PoolParams {
-        // Balancer Pool Token (representing shares of the pool)
+        // Cent Pool Token (representing shares of the pool)
         string poolTokenSymbol;
         string poolTokenName;
         // Tokens inside the Pool

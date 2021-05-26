@@ -58,7 +58,7 @@ contract('configurableWeights', async (accounts) => {
     const startBalances = [toWei('80000'), toWei('40'), toWei('10000')];
     const minimumWeightChangeBlockPeriod = 10;
     const SYMBOL = 'BSP';
-    const NAME = 'Balancer Pool Token';
+    const NAME = 'Cent Pool Token';
 
     const permissions = {
         canPauseSwapping: false,
@@ -177,13 +177,13 @@ contract('configurableWeights', async (accounts) => {
             const bPoolAddr = await crpPool.bPool();
             const bPool = await BPool.at(bPoolAddr);
 
-            let adminBPTBalance = await crpPool.balanceOf.call(admin);
+            let adminCPTBalance = await crpPool.balanceOf.call(admin);
             let adminWethBalance = await weth.balanceOf.call(admin);
             let bPoolXYZBalance = await xyz.balanceOf.call(bPoolAddr);
             let bPoolWethBalance = await weth.balanceOf.call(bPoolAddr);
             let bPoolDaiBalance = await dai.balanceOf.call(bPoolAddr);
 
-            assert.equal(adminBPTBalance, toWei('100'));
+            assert.equal(adminCPTBalance, toWei('100'));
             assert.equal(adminWethBalance, toWei('60'));
             assert.equal(bPoolXYZBalance, toWei('80000'));
             assert.equal(bPoolWethBalance, toWei('40'));
@@ -203,15 +203,15 @@ contract('configurableWeights', async (accounts) => {
 
             await crpPool.updateWeight(WETH, toWei(updatedWethWeight)); // This should double WETH weight from 1.5 to 3.
 
-            adminBPTBalance = await crpPool.balanceOf.call(admin);
+            adminCPTBalance = await crpPool.balanceOf.call(admin);
             adminWethBalance = await weth.balanceOf.call(admin);
             bPoolXYZBalance = await xyz.balanceOf.call(bPoolAddr);
             bPoolWethBalance = await weth.balanceOf.call(bPoolAddr);
             bPoolDaiBalance = await dai.balanceOf.call(bPoolAddr);
 
-            // BPT Balance should go from 100 to 110 since total weight went from 15 to 16.5
+            // CPT Balance should go from 100 to 110 since total weight went from 15 to 16.5
             // WETH Balance should go from 60 to 20 (since 40 WETH are deposited to pool to get if from 40 to 80 WETH)
-            assert.equal(adminBPTBalance, toWei('110'));
+            assert.equal(adminCPTBalance, toWei('110'));
             assert.equal(adminWethBalance, toWei('20'));
             assert.equal(bPoolXYZBalance, toWei('80000'));
             assert.equal(bPoolWethBalance, toWei('80'));
@@ -311,13 +311,13 @@ contract('configurableWeights', async (accounts) => {
             const bPoolAddr = await crpPool.bPool();
             const bPool = await BPool.at(bPoolAddr);
 
-            let adminBPTBalance = await crpPool.balanceOf.call(admin);
+            let adminCPTBalance = await crpPool.balanceOf.call(admin);
             let adminXyzBalance = await xyz.balanceOf.call(admin);
             let bPoolXYZBalance = await xyz.balanceOf.call(bPoolAddr);
             let bPoolWethBalance = await weth.balanceOf.call(bPoolAddr);
             let bPoolDaiBalance = await dai.balanceOf.call(bPoolAddr);
 
-            assert.equal(adminBPTBalance, toWei('100'));
+            assert.equal(adminCPTBalance, toWei('100'));
             assert.equal(adminXyzBalance, toWei('20000'));
             assert.equal(bPoolXYZBalance, toWei('80000'));
             assert.equal(bPoolWethBalance, toWei('40'));
@@ -340,15 +340,15 @@ contract('configurableWeights', async (accounts) => {
             // This should double XYZ weight from 12 to 6.
             await crpPool.updateWeight(XYZ, toWei(updatedXyzWeight));
 
-            adminBPTBalance = await crpPool.balanceOf.call(admin);
+            adminCPTBalance = await crpPool.balanceOf.call(admin);
             adminXyzBalance = await xyz.balanceOf.call(admin);
             bPoolXYZBalance = await xyz.balanceOf.call(bPoolAddr);
             bPoolWethBalance = await weth.balanceOf.call(bPoolAddr);
             bPoolDaiBalance = await dai.balanceOf.call(bPoolAddr);
 
-            // BPT Balance should go from 100 to 60 since total weight went from 15 to 9
+            // CPT Balance should go from 100 to 60 since total weight went from 15 to 9
             // XYZ Balance should go from 20000 to 60000 (40000 (half of original balance) returned from pool)
-            assert.equal(adminBPTBalance, toWei('60'));
+            assert.equal(adminCPTBalance, toWei('60'));
             assert.equal(adminXyzBalance, toWei('60000'));
             assert.equal(bPoolXYZBalance, toWei('40000'));
             assert.equal(bPoolWethBalance, toWei('40'));
@@ -375,13 +375,13 @@ contract('configurableWeights', async (accounts) => {
             const bPoolAddr = await crpPool.bPool();
             const bPool = await BPool.at(bPoolAddr);
 
-            let adminBPTBalance = await crpPool.balanceOf.call(admin);
+            let adminCPTBalance = await crpPool.balanceOf.call(admin);
             let adminWethBalance = await weth.balanceOf.call(admin);
             let bPoolXYZBalance = await xyz.balanceOf.call(bPoolAddr);
             let bPoolWethBalance = await weth.balanceOf.call(bPoolAddr);
             let bPoolDaiBalance = await dai.balanceOf.call(bPoolAddr);
 
-            assert.equal(adminBPTBalance, toWei('100'));
+            assert.equal(adminCPTBalance, toWei('100'));
             assert.equal(adminWethBalance, toWei('60'));
             assert.equal(bPoolXYZBalance, toWei('80000'));
             assert.equal(bPoolWethBalance, toWei('40'));
@@ -402,15 +402,15 @@ contract('configurableWeights', async (accounts) => {
             // This should double WETH weight from 1.5 to 3.
             await crpPool.updateWeight(WETH, toWei(updatedWethWeight));
 
-            adminBPTBalance = await crpPool.balanceOf.call(admin);
+            adminCPTBalance = await crpPool.balanceOf.call(admin);
             adminWethBalance = await weth.balanceOf.call(admin);
             bPoolXYZBalance = await xyz.balanceOf.call(bPoolAddr);
             bPoolWethBalance = await weth.balanceOf.call(bPoolAddr);
             bPoolDaiBalance = await dai.balanceOf.call(bPoolAddr);
 
-            // BPT Balance should go from 100 to 110 since total weight went from 15 to 16.5
+            // CPT Balance should go from 100 to 110 since total weight went from 15 to 16.5
             // WETH Balance should go from 60 to 20 (since 40 WETH are deposited to pool to get if from 40 to 80 WETH)
-            assert.equal(adminBPTBalance, toWei('110'));
+            assert.equal(adminCPTBalance, toWei('110'));
             assert.equal(adminWethBalance, toWei('20'));
             assert.equal(bPoolXYZBalance, toWei('80000'));
             assert.equal(bPoolWethBalance, toWei('80'));
